@@ -16,694 +16,227 @@
 
   <style>
     * {
+      max-width: 380px;
       padding: 0;
       margin: 0;
       box-sizing: border-box;
       outline: none;
       border: none;
-      font-family: "Press Start 2P", system-ui;
-      font-style: normal;
+      font-size: 30px !important;
     }
 
     body {
-      height: 100vh;
       width: 100vw;
-      overflow: hidden;
-      background-color: rgb(31, 54, 54);
-      background-size: cover;
-    }
-
-    #settings {
-      position: fixed;
-      top: 5%;
-      left: 35%;
-      width: 380px;
-      height: 480px;
-      background-color: rgba(205, 207, 210, 0.998);
-      border: 5px solid rgb(28, 42, 39);
-      border-left: none;
-      border-right: none;
-      color: rgb(38, 33, 73);
-      z-index: 111;
-      box-sizing:border-box;
-    }
-
-    #settings input[type=text] {
-      width: 100%;
-      background-color: rgba(255, 253, 251, 0.628);
-      padding: 1% 0;
-      font-size: 24px;
-      line-height: 200%;
-      margin: 2% 0;
-      box-sizing:border-box;
-    }
-
-    #settings #settings_title {
-      margin: 6% 0;
-      padding: 10% 0;
-      background-color: rgba(40, 85, 81, 0.628);
-    }
-
-    #settings #settings_btn {
-      width: 100%;
-      margin: 3% 0;
-      padding: 9% 0;
-      font-size: 22px;
-    }
-
-    #settings #settings_btn:hover {
-      background: linear-gradient(to bottom, white, cadetblue);
-      cursor: pointer;
-    }
-
-
-    #gamecontainer{
-      width: 400px;
-      height: 500px;
-      background-color: rgb(25, 68, 69);
-      margin: 50px 0;
-      display: flex;
-    }
-
-    .board {
-      width: 90%;
-      height: 90%;
-      margin: 15px auto;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      min-width: 100vw;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: rgb(55, 90, 92);
+      overflow: hidden;
+      background-color: #123;
     }
-
-    .player {
-      width: 95%;
-      height: 15%;
-      margin: 10px auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background-color: rgb(36, 59, 60);
-      border: 9px solid rgb(28, 42, 39);
-    }
-
-    .player .name {
-      width: 40%;
-      height: 96%;
-      background: rgba(38, 14, 61, 0.346);
-      color: cadetblue;
-      text-align: left;
-      font-size: 22px;
-      font-size: 14px;
-      line-height: 180%;
-    }
-
-    .player .name #name {
-      color: rgba(240, 255, 255, 0.57);
-    }
-
-    .player .lives {
-      width: 30%;
-      height: 96%;
-      background: rgba(123, 78, 165, 0.346);
-      color: rgb(129, 195, 197);
-      text-align: center;
-      font-size: 22px;
-      font-size: 14px;
-      line-height: 180%;
-    }
-
-    .player .score {
-      width: 30%;
-      height: 96%;
-      background: rgba(38, 14, 61, 0.346);
-      color: cadetblue;
-      text-align: right;
-      font-size: 22px;
-      font-size: 16px;
-      line-height: 170%;
-    }
-
-    .lettermistakes {
-      width: 99%;
-      height: 12%;
-      background: rgb(28, 42, 39);
-      color: rgb(169, 162, 167);
-      text-align: left;
-      padding-left: 5%;
-      letter-spacing: 2px;
-      border: 1px solid rgb(75, 96, 91);
-      border-bottom: none;
-      padding: 2% auto;
-      font-size: 20px;
-      font-size: 12px;
-      line-height: 220%;
-    }
-
-    .inputs {
-      width: 99%;
-      height: 25%;
-      margin: 2px auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      background-color: rgb(14, 23, 23);
-      font-size: 60px;
-      font-size: 62px;
-      line-height: 120%;
-    }
-
-    .inputs select {
-      width: 50%;
-      height: 80%;
-      background: rgb(151, 145, 145);
-      font-size: 60px;
-      text-align: center;
-      font-size: 62px;
-      line-height: 120%;
-    }
-
-    .inputs button {
-      width: 34%;
-      height: 87%;
-      color: azure;
-      background: rgb(75, 96, 91);
-      border: 3px solid rgb(153, 179, 174);
-      font-size: 40px;
-      font-size: 22px;
-      line-height: 120%;
-    }
-
-    .inputs button:hover {
-      width: 34%;
-      height: 87%;
-      color: rgb(156, 232, 232);
-      background: rgb(122, 151, 145);
-      border: 3px solid rgb(73, 93, 89);
-      cursor: pointer;
-    }
-    #word{
-      visibility: hidden;
-      padding-top: 17%;
-      height: 35%;
-      width: 127%;
-      background: silver;
-      border: 10px solid rgb(28, 42, 39);
-      border-top: none;
-      text-align: center;
-      font-size: 56px;
-      font-size: 23px;
-      line-height: 120%;
-      font-weight: bold;
-    }
-
-    .correct {
-      position: fixed;
-      top: 100px;
-      left: 100px;
-      color: rgba(255, 0, 0, 0);
-      font-size: 40px;
-    }
-
-    #score {
-      text-align: center !important;
-      color: rgba(255, 166, 0, 0.597);
-      font-size: 12px;
-    }
-
-    #playername {
+    #result,
+    #gamecontainer,
+    #settings {
+      height: 500px;
+      position: absolute;
       width: 100%;
-      color: black;
+      background-color: blanchedalmond;
+      box-shadow: 12px 12px 62px 15px black;
     }
+
+    #result {
+      display: none;
+      background-color: rgb(77, 68, 54);
+    }
+
+    #gamecontainer {
+      display: none;
+      background-color: rgb(107, 96, 79);
+    }
+
+    #settings {
+      min-width: 380px;
+      max-width: 380px;
+      display: flex;
+      background-color: rgb(137, 127, 111);
+
+      #information {
+        min-width: 380px;
+        max-width: 380px;
+        background: linear-gradient(to right, #123, #321, #456);
+        padding: 5% 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        box-sizing: border-box;
+        gap: 40px;
+
+        #settings_title {
+          min-width: 380px;
+          text-align: center;
+          padding: 20px 0;
+          background-color: #666456;
+          color: #cbc69e;
+        }
+
+        #settings_btn {
+          min-width: 380px;
+          text-align: center;
+          padding: 20px 0;
+          color: white;
+          background: linear-gradient(to top, orange, #123, #321, #456);
+        }
+
+        #settings_btn:hover {
+          background: linear-gradient(to top, orange, #999123, #777321, #666456);
+          cursor: pointer;
+        }
+
+        #playername {
+          min-width: 380px;
+          text-align: center;
+          padding: 12px 0;
+          background-color: #666456;
+          color: #cbc69e;
+        }
+
+        #backname {
+          min-width: 380px;
+          text-align: center;
+          padding: 10px 0;
+          background-color: #666456;
+          color: #cbc69e;
+        }
+
+        #soundname {
+          min-width: 380px;
+          text-align: center;
+          padding: 10px 0;
+          background-color: #666456;
+          color: #cbc69e;
+        }
+      }
+    }
+
 
     #sounderbox {
-      position: absolute;
-      bottom: 5px;
-      left: 35%;
-      width: 410px;
-      height: 80px;
-      z-index: 225;
-      opacity: 75%;
-      border: 5px solid white;
-      background: transparent;
-      display: none;/* flex */
-      align-items: center;
-    }
-
-    #sounderbox #sounder {
-      opacity: 20%;
-      width: 400px;
-      height: 60px;
-      z-index: 226;
-    }
-
-    #sounderbox #sounder:hover {
-      opacity: 80%;
-      width: 400px;
-      height: 60px;
-      z-index: 226;
-    }
-
-    #winners {
-      position: absolute;
-      display: block;
-      background: #658281;
-      margin-top: 135px;
-      margin-left: 0;
-      width: 100%;
-      height: 82%;
-      color: goldenrod;
-      font-size: 60px;
-      text-align: center;
-      padding-top: 2%;
-      z-index: 333;
-    }
-
-
-    #winners #msg {
-      width: 100%;
-      color: goldenrod;
-      font-size: 60px;
-      text-align: center;
-      padding-top: 2%;
-      line-height: 260%;
-  
-    }
-
-    #winners #winning_player {
-      width: 100%;
-      color: goldenrod;
-      font-size: 25px;
-      text-align: justify;
-      padding: 4% auto;
-      line-height: 220%;
-      text-indent: 20px;
-    }
-    #winners #rightanswer {
-      width: 100%;
-      color: rgb(230, 205, 142);
-      font-size: 25px;
-      text-align: justify;
-      padding: 4% auto;
-      line-height: 220%;
-      text-indent: 20px;
-    }
-
-    #winners #winning_score {
-      width: 100%;
-      color: goldenrod;
-      font-size: 30px;
-      text-align: justify;
-      padding: 4% auto;
-      text-indent: 20px;
-      line-height: 220%;
-    }
-    @media only screen and (max-width: 600px) {
-       /*#gamecontainer{
-          width: 380px;
-          max-width:380px;
-          min-width:380px;
-          height: 500px;
-          background-color: rgb(25, 68, 69);
-          margin: 50px 0;
-          display: flex;
-        }*/
-      #settings {
-      position: fixed;
-      top: 5%;
-      left: 1%;
-      width: 380px;
-      max-width:380px;
-      min-width:380px;
-      height: 480px;
-      background-color: rgba(205, 207, 210, 0.998);
-      border: 5px solid rgb(28, 42, 39);
-      border-left: none;
-      border-right: none;
-      color: rgb(38, 33, 73);
-      z-index: 111;
-      box-sizing:border-box;
-    }
-
-    #settings input[type=text] {
-      width: 100%;
-      background-color: rgba(255, 253, 251, 0.628);
-      padding: 1% 0;
-      font-size: 24px;
-      line-height: 200%;
-      margin: 2% 0;
-      box-sizing:border-box;
-    }
-
-    #settings #settings_title {
-      margin: 6% 0;
-      padding: 10% 0;
-      background-color: rgba(40, 85, 81, 0.628);
-    }
-
-    #settings #settings_btn {
-      width: 100%;
-      margin: 3% 0;
-      padding: 9% 0;
-      font-size: 22px;
-    }
-
-    #settings #settings_btn:hover {
-      background: linear-gradient(to bottom, white, cadetblue);
-      cursor: pointer;
-    }
-      /*     */
-     #word{
+      min-height: 15%;
+      max-height: 15%;
       visibility: hidden;
-      padding: 17% 0;
-      height: 35%;
-      width: 90%;
-      background: silver;
-      border: 5px solid rgb(28, 42, 39);
-      border-top: none;
-      text-align: center;
-      font-size: 18px;
-      line-height: 120%;
-      font-weight: bold;
-      box-sizing:border-box;
+      flex-direction: row !important;
+      justify-content: start;
+      width: 100% !important;
+      min-width: 380px !important;
+      max-width: 380px !important;
+      width: 380px !important;
+      background-color: #777321;
+
     }
 
-      #sounderbox {
-        bottom: 5px;
-        left: 5px;
-        width: 380px;
-        max-width: 380px;
-        min-width: 380px;
-        height: 80px;
-        z-index: 225;
-        opacity: 75%;
-        border: 5px solid white;
-        background: transparent;
-        display: flex;
-        align-items: center;
-      }
 
-      #sounderbox #sounder {
-        opacity: 20%;
-        width: 380px;
-        max-width: 380px;
-        min-width: 380px;
-        height: 60px;
-        z-index: 226;
-      }
-
-      #sounderbox #sounder:hover {
-        opacity: 80%;
-      }
-       #winners {
-        position: absolute;
-        display: none;
-        background-color:#658281;
-        margin: 135px 0;
-        width: 100%;
-        height: 82%;
-        color: goldenrod;
-        font-size: 45px;
-        text-align: center;
-        padding: 2% 0;
-        z-index: 333;
-      }
-
-      #winners #msg {
-        width: 100%;
-        color: goldenrod;
-        font-size: 45px;
-        text-align: center;
-        padding: 5% 0;
-      }
-
-      #winners #winning_player {
-        width: 100%;
-        color: goldenrod;
-        font-size: 25px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 5px;
-      }
-      #winners #rightanswer {
-        width: 100%;
-        color: rgb(230, 205, 142);
-        font-size: 25px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 5px;
-      }
-
-      #winners #winning_score {
-        width: 100%;
-        color: goldenrod;
-        font-size: 26px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 10px;
-        line-height: 220%;
-      }
-    }
-    @media only screen and (max-width: 500px) {
-       /*#gamecontainer{
-          width: 380px;
-          max-width:380px;
-          min-width:380px;
-          height: 500px;
-          background-color: rgb(25, 68, 69);
-          margin: 50px 0;
-          display: flex;
-        }*/
-      /* settings css */
-      #settings {
-      position: fixed;
-      top: 5%;
-      left: 1%;
-      width: 380px;
-      max-width:380px;
-      min-width:380px;
-      height: 480px;
-      background-color: rgba(205, 207, 210, 0.998);
-      border: 5px solid rgb(28, 42, 39);
-      border-left: none;
-      border-right: none;
-      color: rgb(38, 33, 73);
-      z-index: 111;
-      box-sizing:border-box;
-    }
-
-    #settings input[type=text] {
-      width: 100%;
-      background-color: rgba(255, 253, 251, 0.628);
-      padding: 1% 0;
-      font-size: 24px;
-      line-height: 200%;
-      margin: 2% 0;
-      box-sizing:border-box;
-    }
-
-    #settings #settings_title {
-      margin: 6% 0;
-      padding: 10% 0;
-      background-color: rgba(40, 85, 81, 0.628);
-    }
-
-    #settings #settings_btn {
-      width: 100%;
-      margin: 3% 0;
-      padding: 9% 0;
-      font-size: 22px;
-    }
-
-    #settings #settings_btn:hover {
-      background: linear-gradient(to bottom, white, cadetblue);
-      cursor: pointer;
-    }
-      /*     */
-     #word{
+    #sounder {
       visibility: hidden;
-      padding: 17% 0;
-      height: 35%;
-      width: 90%;
-      background: silver;
-      border: 5px solid rgb(28, 42, 39);
-      border-top: none;
-      text-align: center;
-      font-size: 18px;
-      line-height: 120%;
-      font-weight: bold;
-      box-sizing:border-box;
+      width: 100%;
+      opacity: .5;
     }
 
-      #sounderbox {
-        bottom: 5px;
-        left: 5px;
-        width: 380px;
-        max-width: 380px;
-        min-width: 380px;
-        height: 80px;
-        z-index: 225;
-        opacity: 75%;
-        border: 5px solid white;
-        background: transparent;
-        display: flex;
-        align-items: center;
-      }
-
-      #sounderbox #sounder {
-        opacity: 20%;
-        width: 380px;
-        max-width: 380px;
-        min-width: 380px;
-        height: 60px;
-        z-index: 226;
-      }
-
-      #sounderbox #sounder:hover {
-        opacity: 80%;
-      }
-       #winners {
-        position: absolute;
-        display: none;
-        background-color:#658281;
-        margin: 135px 0;
-        width: 100%;
-        height: 82%;
-        color: goldenrod;
-        font-size: 45px;
-        text-align: center;
-        padding: 2% 0;
-        z-index: 333;
-      }
-
-      #winners #msg {
-        width: 100%;
-        color: goldenrod;
-        font-size: 45px;
-        text-align: center;
-        padding: 2% 0;
-        line-height: 260%;
-    
-      }
-
-      #winners #winning_player {
-        width: 100%;
-        color: goldenrod;
-        font-size: 25px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 5px;
-      }
-      #winners #rightanswer {
-        width: 100%;
-        color: rgb(230, 205, 142);
-        font-size: 25px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 5px;
-      }
-
-      #winners #winning_score {
-        width: 100%;
-        color: goldenrod;
-        font-size: 26px;
-        text-align: justify;
-        padding: 4% auto;
-        text-indent: 5px;
-      }
+    #sounder:hover {
+      width: 100%;
+      opacity: .8;
     }
-    
   </style>
 </head>
 
 <body id="gameboard">
-
-  <div id="settings">
+  <div id="result">
     <div class="winners" id="winners">
       <div id="msg"></div>
       <div id="winning_player"></div>
       <div id="rightanswer"></div>
       <div id="winning_score"></div>
     </div>
-    <input type="text" id="settings_title" value="GUESSING GAME">
-    <input type="text" id="playername" value="" placeholder="Player Name ...">
-    <input type="text" id="backname" value="" placeholder="background ...">
-    <input type="text" id="soundname" value="" placeholder="music ...">
-    <input type="button" id="settings_btn" value="PLAY">
+  </div>
+  <div id="settings">
+    <div id="information" class="info">
+      <input type="text" id="settings_title" value="GUESSING GAME GG">
+      <input type="text" id="playername" value="" placeholder="Player Name ...">
+      <input type="text" id="backname" value="" placeholder="background ...">
+      <input type="text" id="soundname" value="" placeholder="music ...">
+      <input type="button" id="settings_btn" value="PLAY">
+    </div>
   </div>
 
-  <div class="container" id="gamecontainer">
-    <div class="board d-flex direction-column">
-      <div class="player d-flex direction-row">
+  <div id="gamecontainer">
+    <div class="board" id="board">
+      <div class="player d-flex direction-row" id="player">
         <div class="name">
           player
-          <br>
-          <span id="name"></span>
+          <span id="name">ibrahim</span>
         </div>
         <div class="lives">
-          <span id="live"></span>
-          <br>
           lives
+          <span id="live">4</span>
         </div>
         <div class="score">
           score
-          <br>
-          <h4 id="score"></h4>
+          <h4 id="score">200</h4>
         </div>
       </div>
-      <div class="lettermistakes" id="lettermistakes">
-        mistakes: <span id="mistakes"></span>
-      </div>
-      <div class="pizzle word" id="word">
-        <span id="converffromdash"></span>
-      </div>
-      <div class="inputs">
-
-        <select type="text" name="letter" id="letter" autofocus>
-          <option value="a">a</option>
-          <option value="b">b</option>
-          <option value="c">c</option>
-          <option value="d">d</option>
-
-          <option value="e">e</option>
-          <option value="f">f</option>
-          <option value="g">g</option>
-          <option value="h">h</option>
-
-          <option value="i">i</option>
-          <option value="j">j</option>
-          <option value="k">k</option>
-          <option value="l">l</option>
-          <option value="m">m</option>
-          <option value="n">n</option>
-          <option value="o">o</option>
-          <option value="p">p</option>
-          <option value="q">q</option>
-          <option value="r">r</option>
-          <option value="s">s</option>
-          <option value="t">t</option>
-          <option value="u">u</option>
-          <option value="v">v</option>
-          <option value="w">w</option>
-          <option value="x">x</option>
-          <option value="y">y</option>
-          <option value="z">z</option>
-        </select>
-
-        <button id="guess" onclick="">guess</button>
-
-      </div>
     </div>
-    <div id="sounderbox">
-      <video id="sounder" controls autoplay name="media">
-        <source type="audio/mpeg">
-      </video>
+    <div class="lettermistakes" id="lettermistakes">
+      mistakes: <span id="mistakes">4</span>
+    </div>
+    <div class="pizzle word" id="word">
+      <span id="converffromdash"></span>
+    </div>
+    <div class="inputs" id="inputs">
+      <select type="text" name="letter" id="letter" autofocus>
+        <option value="a">a</option>
+        <option value="b">b</option>
+        <option value="c">c</option>
+        <option value="d">d</option>
+
+        <option value="e">e</option>
+        <option value="f">f</option>
+        <option value="g">g</option>
+        <option value="h">h</option>
+
+        <option value="i">i</option>
+        <option value="j">j</option>
+        <option value="k">k</option>
+        <option value="l">l</option>
+        <option value="m">m</option>
+        <option value="n">n</option>
+        <option value="o">o</option>
+        <option value="p">p</option>
+        <option value="q">q</option>
+        <option value="r">r</option>
+        <option value="s">s</option>
+        <option value="t">t</option>
+        <option value="u">u</option>
+        <option value="v">v</option>
+        <option value="w">w</option>
+        <option value="x">x</option>
+        <option value="y">y</option>
+        <option value="z">z</option>
+      </select>
+      <button id="guess" onclick="">guess</button>
     </div>
   </div>
 
-  <div class="correct"></div>
+  <div id="sounderbox">
+    <video id="sounder" controls autoplay name="media">
+      <source type="audio/mpeg">
+    </video>
+  </div>
+
   <script>
     let wordbox = document.getElementById('word');
     let rightanswer = document.getElementById('rightanswer');
@@ -720,25 +253,21 @@
     let soundbox = document.getElementById('soundname');
 
 
-    settings_btn.addEventListener('click', () => {
+    settings_btn.addEventListener('click', () => {//gamecontainer
+      document.getElementById('start').style.display = 'flex';
       document.getElementById('settings').style.display = 'none';
       document.getElementById('winners').style.display = 'none';
-      wordbox.style.visibility='visible';
+      wordbox.style.visibility = 'visible';
       game(playerbox.value, backbox.value, soundbox.value, hearts);
     })
 
-
-
     function game(player, back, sound, hearts) {
-    
-    
       let result = '';
       let gameboard = document.getElementById('gameboard');
       let differenceinmistakes = 0;
       let scorebox = document.getElementById('score');
       let live = document.getElementById('live');
-      let correct = document.querySelector('.correct');
-      correct.innerHTML = null;
+
       let nofmistakes = 0;
       let nofcorrectness = 0;
       let notin = [];
@@ -756,27 +285,27 @@
 
       let backforgame = back;
       if (backforgame === 'back1') {
-        gameboard.style.backgroundImage = "url('back1.png')";
+        gameboard.style.backgroundImage = "url('./img/back1.png')";
       } else if (backforgame === 'back2') {
-        gameboard.style.backgroundImage = "url('back2.jpg')";
+        gameboard.style.backgroundImage = "url('./img/back2.jpg')";
       } else if (backforgame === 'back3') {
-        gameboard.style.backgroundImage = "url('back3.jpg')";
+        gameboard.style.backgroundImage = "url('./img/back3.jpg')";
       } else {
         gameboard.style.backgroundImage = "none";
       }
       let soundforgame = sound;
       if (soundforgame === 'guess') {
-        sounder.src = "guess.mp3";
-        sounderbox.style.display='flex';
+        sounder.src = "./snd/guess.mp3";
+        sounderbox.style.display = 'flex';
       } else if (soundforgame === 'reflect') {
-        sounder.src = "reflect.mp3";
-        sounderbox.style.display='flex';
+        sounder.src = "./snd/reflect.mp3";
+        sounderbox.style.display = 'flex';
       } else if (soundforgame === 'night') {
-        sounder.src = "night.mp3";
-        sounderbox.style.display='flex';
+        sounder.src = "./snd/night.mp3";
+        sounderbox.style.display = 'flex';
       } else {
         sounder.src = "";
-        sounderbox.style.display='none';
+        sounderbox.style.display = 'none';
       }
       //////////////////////////////////////////////////////////////////
       const namebox = document.getElementById('name');
@@ -836,7 +365,7 @@
           nofdashes -= 1;//dash array
 
           console.log('correctness : ', nofcorrectness);
-          correct.innerHTML = nofcorrectness;
+
           lives = lives + nofcorrectness;
           live.innerHTML = lives;
           score = score + (lives * wordlen);
@@ -879,12 +408,12 @@
 
           if (lives <= 0) {
             result = 'LOSER';
-            if(result==='LOSER'){
-              score =0;
+            if (result === 'LOSER') {
+              score = 0;
             }
             console.log("loser ")
             document.getElementById('settings').style.display = 'block';
-            wordbox.style.visibility='hidden';
+            wordbox.style.visibility = 'hidden';
             setTimeout(() => {
               winners.style.display = 'block';
               msg.innerHTML = result;
@@ -904,12 +433,12 @@
           }
         } else {
           result = 'WINNER';
-          if(result==='WINNER'){
-              score =score;
+          if (result === 'WINNER') {
+            score = score;
           }
           console.log("winner ")
           document.getElementById('settings').style.display = 'block';
-          wordbox.style.visibility='hidden';
+          wordbox.style.visibility = 'hidden';
           setTimeout(() => {
             winners.style.display = 'block';
             msg.innerHTML = result;
@@ -953,6 +482,8 @@
       var x = document.getElementById("letter");
       x.remove(x.selectedIndex);
     }
+
   </script>
 </body>
+
 </html>
