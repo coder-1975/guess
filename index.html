@@ -88,13 +88,16 @@
           text-align: center;
           padding: 40px 0;
           background-color: #666456;
-          color: #cbc69e;
+          
           display:flex;
           flex-direction:column;
           justify-content:center;
           align-items:center;
           gap:3px;
-          font-size:24px !important;
+            #master{
+              color: #cbc69e;
+               font-size:24px !important;
+            }
             #creatorofapp{
               font-size:13px !important;
               color:#000000;
@@ -186,7 +189,8 @@
   </div>
   <div id="settings">
     <div id="information" class="info">
-      <div id="settings_title" value="GUESSING GAME">
+      <div id="settings_title">
+        <span id="master">GUESSING GAME</span>
         <span id="creatorofapp">BY IBRAHIM HASSAN 2024 </span>
       </div>
       <input type="text" id="playername" value="" placeholder="Player Name ...">
