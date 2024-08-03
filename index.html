@@ -35,7 +35,9 @@
       overflow: hidden;
       background-color: #123;
     }
-    #result,
+    @media screen and (min-width: 480px) {
+    /*CSS if screen size >= 480px*/
+      #result,
     #gamecontainer,
     #settings {
       height: 400px;
@@ -147,6 +149,8 @@
       width: 100%;
       opacity: .8;
     }
+    }
+    
   </style>
 </head>
 
