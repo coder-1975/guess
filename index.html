@@ -503,23 +503,23 @@
 
       let backforgame = back;
       if (backforgame === 'back1') {
-        gameboard.style.backgroundImage = "url('./img/back1.png')";
+        gameboard.style.backgroundImage = "url('back1.png')";
       } else if (backforgame === 'back2') {
-        gameboard.style.backgroundImage = "url('./img/back2.jpg')";
+        gameboard.style.backgroundImage = "url('back2.jpg')";
       } else if (backforgame === 'back3') {
-        gameboard.style.backgroundImage = "url('./img/back3.jpg')";
+        gameboard.style.backgroundImage = "url('back3.jpg')";
       } else {
         gameboard.style.backgroundImage = "none";
       }
       let soundforgame = sound;
       if (soundforgame === 'guess') {
-        sounder.src = "./snd/guess.mp3";
+        sounder.src = "guess.mp3";
         sounderbox.style.display='flex';
       } else if (soundforgame === 'reflect') {
-        sounder.src = "./snd/reflect.mp3";
+        sounder.src = "reflect.mp3";
         sounderbox.style.display='flex';
       } else if (soundforgame === 'night') {
-        sounder.src = "./snd/night.mp3";
+        sounder.src = "night.mp3";
         sounderbox.style.display='flex';
       } else {
         sounder.src = "";
