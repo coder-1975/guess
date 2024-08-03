@@ -40,24 +40,28 @@
     /*CSS if screen size >= 480px*/
       #result,
       #gamecontainer,
-      #settings,#sounderbox{
+      #settings,
+      #sounderbox{
       height: 500px;
       position: absolute;
       width: 350px;
       background-color: blanchedalmond;
       box-shadow: 2px 2px 6px 5px black;
       box-sizing:border-box;
-        margin:auto;
+      margin:auto;
+      z-index:100;
     }
 
     #result {
       display: none;
       background-color: rgb(77, 68, 54);
+      z-index:100;
     }
 
     #gamecontainer {
       display: none;
       background-color: rgb(107, 96, 79);
+      z-index:100;
     }
 
     #settings {
@@ -65,6 +69,7 @@
       max-width: 350px;
       display: flex;
       background-color: rgb(137, 127, 111);
+      z-index:100;
 
       #information {
         min-width: 350px;
