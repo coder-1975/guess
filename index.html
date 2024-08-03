@@ -10,10 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Hanalei+Fill&family=Press+Start+2P&display=swap"
     rel="stylesheet">
-  <title>Document</title>
+  <title>GUESSING</title>
 
   <style>
     * {
@@ -59,9 +59,11 @@
         margin: auto;
         font-size: 23px !important;
       }
+
       #result {
         background-color: rgb(77, 68, 54);
         z-index: 98;
+
         #winners {
           background: #cbc69e;
           width: 350px;
@@ -210,7 +212,7 @@
         }
 
         #word {
-          background-image: url('./img/back4.jpg');
+          background-image: url('back4.jpg');
           display: flex;
           width: 350px;
           height: 200px;
@@ -339,7 +341,7 @@
         z-index: 96;
 
         #sounder {
-        
+
           width: 100%;
           height: 100%;
           opacity: .5;
@@ -349,7 +351,7 @@
           z-index: 444;
 
           #sndbtn {
-          
+
             width: 1%;
             height: 11%;
             opacity: .5;
@@ -366,6 +368,7 @@
             z-index: 445;
           }
         }
+
         #sounder:hover {
           width: 100%;
           opacity: .8;
@@ -460,13 +463,12 @@
 <body id="gameboard">
   <div id="result">
     <div class="winners" id="winners">
-      <div id="msg">WINNER</div>
-      <div id="winning_player">PLAYER | IBRAHIM</div>
-      <div id="rightanswer">WORD | SAMA</div>
-      <div id="winning_score">SCORE | 20000</div>
+      <div id="msg"></div>
+      <div id="winning_player"></div>
+      <div id="rightanswer"></div>
+      <div id="winning_score"></div>
     </div>
   </div>
-
 
   <div id="settings">
     <div id="information" class="info">
@@ -487,15 +489,15 @@
       <div class="player d-flex direction-row" id="player">
         <div class="name">
           player
-          <span id="name">ibrahim</span>
+          <span id="name"></span>
         </div>
         <div class="lives">
           lives
-          <span id="live">4</span>
+          <span id="live"></span>
         </div>
         <div class="score">
           score
-          <span id="score">200</span>
+          <span id="score"></span>
         </div>
       </div>
     </div>
@@ -511,12 +513,10 @@
         <option value="b">b</option>
         <option value="c">c</option>
         <option value="d">d</option>
-
         <option value="e">e</option>
         <option value="f">f</option>
         <option value="g">g</option>
         <option value="h">h</option>
-
         <option value="i">i</option>
         <option value="j">j</option>
         <option value="k">k</option>
@@ -547,45 +547,7 @@
     <button id="sndbtn">hide</button>
   </div>
 
-
   <script>
-    /*
-      #result,
-      #gamecontainer,
-      #settings,
-      #sounderbox
-      */
-    // btn to hide the sounder
-    document.getElementById("sndbtn").onclick = () => {
-      document.getElementById("sndbtn").parentElement.style.visibility = 'hidden';
-      //document.getElementById("sounder").style.visibility = 'hidden';
-    }
-    // click setting btn to out of settings and start game
-    document.getElementById("settings_btn")
-      .addEventListener('click', () => {
-        document.getElementById("settings").style.display = "none";
-        document.getElementById("gamecontainer").style.display = "flex";
-        // startgame()  run start game function
-
-        //here please
-
-        /////////////////////////////////////////
-      })
-    // change style for guess btn when clicked to choose letter
-    guessbtn = document.getElementById("guess");
-    guessbtn.addEventListener("mousedown", () => {
-      guessbtn.classList.add("backo");
-      guessbtn.classList.remove("facko");
-    })
-    guessbtn.addEventListener("mouseout", () => {
-      guessbtn.classList.add("facko");
-      guessbtn.classList.remove("backo");
-    })
-    //////////////////////////////////////////////////////////////
-  </script>
-
-  <!--<script>
-    
     let wordbox = document.getElementById('word');
     let rightanswer = document.getElementById('rightanswer');
     let winners = document.getElementById("winners");
@@ -599,15 +561,33 @@
     let playerbox = document.getElementById('playername');
     let backbox = document.getElementById('backname');
     let soundbox = document.getElementById('soundname');
+    // btn to hide the sounder
+    document.getElementById("sndbtn").onclick = () => {
+      document.getElementById("sndbtn").parentElement.style.visibility = 'hidden';
+      //document.getElementById("sounder").style.visibility = 'hidden';
+    }
+    // click setting btn to out of settings and start game
+    document.getElementById("settings_btn")
+      .addEventListener('click', () => {
+        document.getElementById("settings").style.display = "none";
+        document.getElementById("gamecontainer").style.display = "flex";
+        // startgame()  run start game function
 
-
-    settings_btn.addEventListener('click', () => {//gamecontainer
-      document.getElementById('start').style.display = 'flex';
-      document.getElementById('settings').style.display = 'none';
-      document.getElementById('winners').style.display = 'none';
-      wordbox.style.visibility = 'visible';
-      game(playerbox.value, backbox.value, soundbox.value, hearts);
+        //here please
+        game(playerbox.value, backbox.value, soundbox.value, hearts);
+        /////////////////////////////////////////
+      })
+    // change style for guess btn when clicked to choose letter
+    guessbtn = document.getElementById("guess");
+    guessbtn.addEventListener("mousedown", () => {
+      guessbtn.classList.add("backo");
+      guessbtn.classList.remove("facko");
     })
+    guessbtn.addEventListener("mouseout", () => {
+      guessbtn.classList.add("facko");
+      guessbtn.classList.remove("backo");
+    })
+    //////////////////////////////////////////////////////////////
 
     function game(player, back, sound, hearts) {
       let result = '';
@@ -633,23 +613,23 @@
 
       let backforgame = back;
       if (backforgame === 'back1') {
-        gameboard.style.backgroundImage = "url('./img/back1.png')";
+        gameboard.style.backgroundImage = "url('back1.png')";
       } else if (backforgame === 'back2') {
-        gameboard.style.backgroundImage = "url('./img/back2.jpg')";
+        gameboard.style.backgroundImage = "url('back2.jpg')";
       } else if (backforgame === 'back3') {
-        gameboard.style.backgroundImage = "url('./img/back3.jpg')";
+        gameboard.style.backgroundImage = "url('back3.jpg')";
       } else {
         gameboard.style.backgroundImage = "none";
       }
       let soundforgame = sound;
       if (soundforgame === 'guess') {
-        sounder.src = "./snd/guess.mp3";
+        sounder.src = "guess.mp3";
         sounderbox.style.display = 'flex';
       } else if (soundforgame === 'reflect') {
-        sounder.src = "./snd/reflect.mp3";
+        sounder.src = "reflect.mp3";
         sounderbox.style.display = 'flex';
       } else if (soundforgame === 'night') {
-        sounder.src = "./snd/night.mp3";
+        sounder.src = "night.mp3";
         sounderbox.style.display = 'flex';
       } else {
         sounder.src = "";
@@ -658,7 +638,6 @@
       //////////////////////////////////////////////////////////////////
       const namebox = document.getElementById('name');
       namebox.innerHTML = name;
-
       let dic = ['sama', 'sara', 'budy', 'ibrahim', 'heba', 'abdlrahman'];
       //get the length of the dictionary array
       let len = dic.length;
@@ -711,9 +690,7 @@
           console.log('correct isin: ', isin);
           nofcorrectness += 1;
           nofdashes -= 1;//dash array
-
           console.log('correctness : ', nofcorrectness);
-
           lives = lives + nofcorrectness;
           live.innerHTML = lives;
           score = score + (lives * wordlen);
@@ -743,7 +720,6 @@
                 letters(dash);
               } else {
                 letters(dash);
-
               }
             })
           } else {
@@ -753,27 +729,29 @@
         console.log(idx);
         removetakenletter();
         if (dash.includes('-')) {
-
           if (lives <= 0) {
             result = 'LOSER';
             if (result === 'LOSER') {
               score = 0;
             }
             console.log("loser ")
-            document.getElementById('settings').style.display = 'block';
-            wordbox.style.visibility = 'hidden';
+            document.getElementById('result').style.display = 'flex';
+            document.getElementById('gamecontainer').style.display = 'none';
+            document.getElementById('settings').style.display = 'none';
+            document.getElementById('sounderbox').style.visibility = 'hidden';
+
             setTimeout(() => {
-              winners.style.display = 'block';
+              winners.style.display = 'flex';
               msg.innerHTML = result;
             }, 2000)
             setTimeout(() => {
-              winnersplayer.innerHTML = 'player: ' + name;
+              winnersplayer.innerHTML = 'PLAYER | ' + name;
             }, 3000)
             setTimeout(() => {
-              rightanswer.innerHTML = 'word:' + word.join('');// rightanswer
+              rightanswer.innerHTML = 'WORD | ' + word.join('');
             }, 5000)
             setTimeout(() => {
-              winning_score.innerHTML = 'score: ' + score;// rightanswer
+              winning_score.innerHTML = 'SCORE | ' + score;
             }, 7000)
             setTimeout(() => {
               window.location.reload();
@@ -785,20 +763,23 @@
             score = score;
           }
           console.log("winner ")
-          document.getElementById('settings').style.display = 'block';
-          wordbox.style.visibility = 'hidden';
+          document.getElementById('result').style.display = 'flex';
+          document.getElementById('gamecontainer').style.display = 'none';
+          document.getElementById('settings').style.display = 'none';
+          document.getElementById('sounderbox').style.visibility = 'hidden';
+
           setTimeout(() => {
-            winners.style.display = 'block';
+            winners.style.display = 'flex';
             msg.innerHTML = result;
           }, 2000)
           setTimeout(() => {
-            winnersplayer.innerHTML = 'player: ' + name;
+            winnersplayer.innerHTML = 'PLAYER | ' + name;
           }, 3000)
           setTimeout(() => {
-            rightanswer.innerHTML = 'word:' + word.join('');// rightanswer
+            rightanswer.innerHTML = 'WORD | ' + word.join('');
           }, 5000)
           setTimeout(() => {
-            winning_score.innerHTML = 'score: ' + score;// rightanswer
+            winning_score.innerHTML = 'SCORE | ' + score;
           }, 7000)
           setTimeout(() => {
             window.location.reload();
@@ -831,7 +812,8 @@
       x.remove(x.selectedIndex);
     }
 
-  </script>-->
+  </script>
+
 </body>
 
 </html>
