@@ -37,8 +37,8 @@
       position: fixed;
       top: 5%;
       left: 35%;
-      width: 380px;
-      height: 480px;
+      width: 380px !important;
+      height: 480px !important;
       background-color: rgba(205, 207, 210, 0.998);
       border: 5px solid rgb(28, 42, 39);
       border-left: none;
@@ -49,7 +49,7 @@
     }
 
     #settings input[type=text] {
-      width: 100%;
+      width: 100%;/* 100% */
       background-color: rgba(255, 253, 251, 0.628);
       padding: 1% 0;
       font-size: 24px;
@@ -78,7 +78,7 @@
 
 
     #gamecontainer{
-      width: 400px;
+      width: 380px !important;
       height: 500px;
       background-color: rgb(25, 68, 69);
       margin: 50px 0;
@@ -86,9 +86,9 @@
     }
 
     .board {
-      width: 90%;
-      height: 90%;
-      margin: 15px auto;
+      width: 100%;
+      height: 100%;
+      margin: 5px 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -97,9 +97,9 @@
     }
 
     .player {
-      width: 95%;
+      width: 100%;
       height: 15%;
-      margin: 10px auto;
+      margin: 10px 0;
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -116,7 +116,6 @@
       text-align: left;
       font-size: 22px;
       font-size: 14px;
-      line-height: 180%;
     }
 
     .player .name #name {
@@ -125,13 +124,12 @@
 
     .player .lives {
       width: 30%;
-      height: 96%;
+      height: 100%;
       background: rgba(123, 78, 165, 0.346);
       color: rgb(129, 195, 197);
       text-align: center;
       font-size: 22px;
       font-size: 14px;
-      line-height: 180%;
     }
 
     .player .score {
@@ -142,11 +140,10 @@
       text-align: right;
       font-size: 22px;
       font-size: 16px;
-      line-height: 170%;
     }
 
     .lettermistakes {
-      width: 99%;
+      width: 100%;
       height: 12%;
       background: rgb(28, 42, 39);
       color: rgb(169, 162, 167);
@@ -164,7 +161,7 @@
     .inputs {
       width: 99%;
       height: 25%;
-      margin: 2px auto;
+      margin: 2px 0;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -205,15 +202,15 @@
       cursor: pointer;
     }
     #word{
-      visibility: hidden;
+      visibility: visible;
       padding-top: 17%;
       height: 35%;
-      width: 127%;
+      width: 100%;
       background: silver;
       border: 10px solid rgb(28, 42, 39);
       border-top: none;
       text-align: center;
-      font-size: 56px;
+      font-size: 50px;
       font-size: 23px;
       line-height: 120%;
       font-weight: bold;
@@ -242,7 +239,7 @@
       position: absolute;
       bottom: 5px;
       left: 35%;
-      width: 410px;
+      width: 380px !important;
       height: 80px;
       z-index: 225;
       opacity: 75%;
@@ -254,14 +251,14 @@
 
     #sounderbox #sounder {
       opacity: 20%;
-      width: 400px;
+      width: 380px;
       height: 60px;
       z-index: 226;
     }
 
     #sounderbox #sounder:hover {
       opacity: 80%;
-      width: 400px;
+      width: 380px;
       height: 60px;
       z-index: 226;
     }
@@ -275,7 +272,7 @@
       width: 100%;
       height: 82%;
       color: goldenrod;
-      font-size: 60px;
+      font-size: 50px;
       text-align: center;
       padding-top: 2%;
       z-index: 333;
@@ -289,7 +286,6 @@
       text-align: center;
       padding-top: 2%;
       line-height: 260%;
-  
     }
 
     #winners #winning_player {
@@ -297,7 +293,7 @@
       color: goldenrod;
       font-size: 25px;
       text-align: justify;
-      padding: 4% auto;
+      padding: 4% 0;
       line-height: 220%;
       text-indent: 20px;
     }
@@ -306,7 +302,7 @@
       color: rgb(230, 205, 142);
       font-size: 25px;
       text-align: justify;
-      padding: 4% auto;
+      padding: 4% 0;
       line-height: 220%;
       text-indent: 20px;
     }
@@ -316,7 +312,7 @@
       color: goldenrod;
       font-size: 30px;
       text-align: justify;
-      padding: 4% auto;
+      padding: 4% 0;
       text-indent: 20px;
       line-height: 220%;
     }
@@ -466,155 +462,8 @@
         line-height: 220%;
       }
     }
-    @media only screen and (max-width: 500px) {
-       /*#gamecontainer{
-          width: 380px;
-          max-width:380px;
-          min-width:380px;
-          height: 500px;
-          background-color: rgb(25, 68, 69);
-          margin: 50px 0;
-          display: flex;
-        }*/
-      /* settings css */
-      #settings {
-      position: fixed;
-      top: 5%;
-      left: 1%;
-      width: 380px;
-      max-width:380px;
-      min-width:380px;
-      height: 480px;
-      background-color: rgba(205, 207, 210, 0.998);
-      border: 5px solid rgb(28, 42, 39);
-      border-left: none;
-      border-right: none;
-      color: rgb(38, 33, 73);
-      z-index: 111;
-      box-sizing:border-box;
-    }
-
-    #settings input[type=text] {
-      width: 100%;
-      background-color: rgba(255, 253, 251, 0.628);
-      padding: 1% 0;
-      font-size: 24px;
-      line-height: 200%;
-      margin: 2% 0;
-      box-sizing:border-box;
-    }
-
-    #settings #settings_title {
-      margin: 6% 0;
-      padding: 10% 0;
-      background-color: rgba(40, 85, 81, 0.628);
-    }
-
-    #settings #settings_btn {
-      width: 100%;
-      margin: 3% 0;
-      padding: 9% 0;
-      font-size: 22px;
-    }
-
-    #settings #settings_btn:hover {
-      background: linear-gradient(to bottom, white, cadetblue);
-      cursor: pointer;
-    }
-      /*     */
-     #word{
-      visibility: hidden;
-      padding: 17% 0;
-      height: 35%;
-      width: 90%;
-      background: silver;
-      border: 5px solid rgb(28, 42, 39);
-      border-top: none;
-      text-align: center;
-      font-size: 18px;
-      line-height: 120%;
-      font-weight: bold;
-      box-sizing:border-box;
-    }
-
-      #sounderbox {
-        bottom: 5px;
-        left: 5px;
-        width: 380px;
-        max-width: 380px;
-        min-width: 380px;
-        height: 80px;
-        z-index: 225;
-        opacity: 75%;
-        border: 5px solid white;
-        background: transparent;
-        display: flex;
-        align-items: center;
-      }
-
-      #sounderbox #sounder {
-        opacity: 20%;
-        width: 380px;
-        max-width: 380px;
-        min-width: 380px;
-        height: 60px;
-        z-index: 226;
-      }
-
-      #sounderbox #sounder:hover {
-        opacity: 80%;
-      }
-       #winners {
-        position: absolute;
-        display: none;
-        background-color:#658281;
-        margin: 135px 0;
-        width: 100%;
-        height: 82%;
-        color: goldenrod;
-        font-size: 45px;
-        text-align: center;
-        padding: 2% 0;
-        z-index: 333;
-      }
-
-      #winners #msg {
-        width: 100%;
-        color: goldenrod;
-        font-size: 45px;
-        text-align: center;
-        padding: 2% 0;
-        line-height: 260%;
     
-      }
 
-      #winners #winning_player {
-        width: 100%;
-        color: goldenrod;
-        font-size: 25px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 5px;
-      }
-      #winners #rightanswer {
-        width: 100%;
-        color: rgb(230, 205, 142);
-        font-size: 25px;
-        text-align: justify;
-        padding: 4% 0;
-        text-indent: 5px;
-      }
-
-      #winners #winning_score {
-        width: 100%;
-        color: goldenrod;
-        font-size: 26px;
-        text-align: justify;
-        padding: 4% auto;
-        text-indent: 5px;
-      }
-    }
-    
   </style>
 </head>
 
@@ -730,8 +579,8 @@
 
 
     function game(player, back, sound, hearts) {
-    
-    
+
+
       let result = '';
       let gameboard = document.getElementById('gameboard');
       let differenceinmistakes = 0;
