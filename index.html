@@ -324,9 +324,9 @@
       position: fixed;
       top: 5%;
       left: 1%;
-      width: 380px;
-      max-width:380px;
-      min-width:380px;
+      width: 380px !important;
+      max-width:380px !important;
+      min-width:380px !important;
       height: 480px;
       background-color: rgba(205, 207, 210, 0.998);
       border-left: none;
@@ -337,7 +337,7 @@
     }
 
     #settings input[type=text] {
-      width: 100%;
+      width: 370px !important;
       background-color: rgba(255, 253, 251, 0.628);
       padding: 1% 0;
       font-size: 24px;
@@ -347,13 +347,14 @@
     }
 
     #settings #settings_title {
+      width: 370px !important;
       margin: 6% 0;
       padding: 10% 0;
       background-color: rgba(40, 85, 81, 0.628);
     }
 
     #settings #settings_btn {
-      width: 100%;
+      width: 370px !important;
       margin: 3% 0;
       padding: 9% 0;
       font-size: 22px;
@@ -368,7 +369,7 @@
       visibility: hidden;
       padding: 17% 0;
       height: 35%;
-      width: 90%;
+      width: 380px !important;
       background: silver;
       border: 5px solid rgb(28, 42, 39);
       border-top: none;
@@ -388,7 +389,7 @@
         height: 80px;
         z-index: 225;
         opacity: 75%;
-        border: 5px solid white;
+        /*border: 5px solid white;*/
         background: transparent;
         display: flex;
         align-items: center;
@@ -471,9 +472,9 @@
       <div id="winning_score"></div>
     </div>
     <input type="text" id="settings_title" value="GUESSING GAME">
-    <input type="text" id="playername" value="" placeholder="Player Name ...">
-    <input type="text" id="backname" value="" placeholder="background ...">
-    <input type="text" id="soundname" value="" placeholder="music ...">
+    <input type="text" id="playername" value="" placeholder="Player Name ">
+    <input type="text" id="backname" value="" placeholder="background ">
+    <input type="text" id="soundname" value="" placeholder="music ">
     <input type="button" id="settings_btn" value="PLAY">
   </div>
 
