@@ -76,6 +76,115 @@
       cursor: pointer;
     }
 
+    @media only screen and (max-width: 600px) {
+       #gamecontainer{
+          width: 380px;
+          max-width:380px;
+          min-width:380px;
+          height: 500px;
+          background-color: rgb(25, 68, 69);
+          margin: 50px 0;
+          display: flex;
+        }
+      #settings {
+        left: 2px;
+        z-index: 111;
+      }
+     #word{
+      visibility: hidden;
+      padding: 17% 0;
+      height: 35%;
+      width: 90%;
+      background: silver;
+      border: 5px solid rgb(28, 42, 39);
+      border-top: none;
+      text-align: center;
+      font-size: 18px;
+      line-height: 120%;
+      font-weight: bold;
+      box-sizing:border-box;
+    }
+
+      #sounderbox {
+        bottom: 5px;
+        margin-left: -125px;
+        width: 410px;
+        height: 80px;
+        z-index: 225;
+        opacity: 75%;
+        border: 5px solid white;
+        background: transparent;
+        display: flex;
+        align-items: center;
+      }
+
+      #sounderbox #sounder {
+        opacity: 20%;
+        width: 400px;
+        height: 60px;
+        z-index: 226;
+      }
+
+      #sounderbox #sounder:hover {
+        opacity: 80%;
+        width: 400px;
+        height: 60px;
+        z-index: 226;
+      }
+       #winners {
+        position: absolute;
+        display: none;
+        /*background: linear-gradient(to top, rgb(14, 24, 17), rgb(93, 139, 111), rgb(57, 98, 72), rgb(65, 112, 83), rgb(13, 23, 17));*/
+        background-color:#658281;
+        margin: 135px 0;
+        width: 100%;
+        height: 82%;
+        color: goldenrod;
+        font-size: 55px;
+        text-align: center;
+        padding: 2% 0;
+        z-index: 333;
+      }
+
+      #winners #msg {
+        width: 100%;
+        color: goldenrod;
+        font-size: 55px;
+        text-align: center;
+        padding: 2% 0;
+        line-height: 260%;
+    
+      }
+
+      #winners #winning_player {
+        width: 100%;
+        color: goldenrod;
+        font-size: 25px;
+        text-align: justify;
+        padding: 4% 0;
+        line-height: 220%;
+        text-indent: 10px;
+      }
+      #winners #rightanswer {
+        width: 100%;
+        color: rgb(230, 205, 142);
+        font-size: 25px;
+        text-align: justify;
+        padding: 4% 0;
+        line-height: 220%;
+        text-indent: 10px;
+      }
+
+      #winners #winning_score {
+        width: 100%;
+        color: goldenrod;
+        font-size: 26px;
+        text-align: justify;
+        padding: 4% auto;
+        text-indent: 10px;
+        line-height: 220%;
+      }
+    }
     @media only screen and (max-width: 500px) {
        #gamecontainer{
           width: 380px;
