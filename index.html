@@ -89,15 +89,21 @@
           padding: 40px 0;
           background-color: #666456;
           color: #cbc69e;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          gap:3px;
           font-size:24px !important;
+            #creatorofapp{
+              font-size:16px !important;
+              color:gold;
+              text-align:left;
+              text-indent:5px;
+              margin-top:-50px;
+           }
         }
-        #creatorofapp{
-          font-size:16px !important;
-          color:gold;
-          text-align:left;
-          text-indent:5px;
-          margin-top:-50px;
-        }
+        
 
         #settings_btn {
           min-width: 350px;
@@ -180,8 +186,9 @@
   </div>
   <div id="settings">
     <div id="information" class="info">
-      <input type="text" id="settings_title" value="GUESSING GAME">
-      <span id="creatorofapp">BY IBRAHIM HASSAN 2024 </span>
+      <div id="settings_title" value="GUESSING GAME">
+        <span id="creatorofapp">BY IBRAHIM HASSAN 2024 </span>
+      </div>
       <input type="text" id="playername" value="" placeholder="Player Name ...">
       <input type="text" id="backname" value="" placeholder="background ...">
       <input type="text" id="soundname" value="" placeholder="music ...">
