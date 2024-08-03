@@ -610,7 +610,6 @@
       } else {
         name = 'ibrahim';
       }
-
       let backforgame = back;
       if (backforgame === 'back1') {
         gameboard.style.backgroundImage = "url('back1.png')";
@@ -635,10 +634,39 @@
         sounder.src = "";
         sounderbox.style.display = 'none';
       }
-      //////////////////////////////////////////////////////////////////
+      
       const namebox = document.getElementById('name');
       namebox.innerHTML = name;
-      let dic = ['sama', 'sara', 'budy', 'ibrahim', 'heba', 'abdlrahman'];
+      // dictionary of words to play with
+      let dic = [
+        'retal',
+        'jody',
+        'seddra',
+        'muhammed',
+        'heba',
+        'sama',
+        'sara',
+        'budy',
+        'ibrahim',
+        'malak',
+        'sherif',
+        'walaa',
+        'dina',
+        'fatima',
+        'sawsan',
+        'soheer',
+        'salwa',
+        'solly',
+        'ahmed',
+        'marium',
+        'hamza',
+        'nagah',
+        'khalid',
+        'mamdouh',
+        'amal',
+        'mahfouz',
+        'salman',
+        'notoneofourrelatives'];
       //get the length of the dictionary array
       let len = dic.length;
       //get random number from 0 to the length of the dictionary
@@ -653,7 +681,6 @@
       let lives = hearts;
       lives = word.length;
       // start while loop
-
       let wordlen = word.length;
       let dashwithdashesleft = 0;
       let nofword = word.length;
@@ -679,9 +706,7 @@
       letters(dash)
       let btno = document.querySelector('button');
       let idx = [];
-      lettergenerator.addEventListener('change', (e) => {
-
-      })
+      lettergenerator.addEventListener('change', (e) => {})
       btno.addEventListener('click', () => {
         let v = lettergenerator.value;
         console.log("value of guessing: ", v);
@@ -702,8 +727,6 @@
           lives = lives - nofmistakes;
           live.innerHTML = lives;
           console.log('mistakes : ', nofmistakes);
-          //score = lives * (Math.abs(wordlen - nofmistakes))
-
         }
         document.querySelector('#converffromdash').innerHTML = "";
         word.forEach((letter, index) => {
@@ -807,6 +830,7 @@
         scorebox.innerHTML = score;
       });
     }
+    // remove the letter which will be taken or guessed with
     function removetakenletter() {
       var x = document.getElementById("letter");
       x.remove(x.selectedIndex);
