@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Hanalei+Fill&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      font-family: "Hanalei Fill", system-ui;
+      font-family: "Press Start 2P", system-ui;
+      font-style: normal;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      background-color: rgb(31, 54, 54);
+      background-size: cover;
+    }
+
+    #settings {
+      position: fixed;
+      top: 5%;
+      left: 35%;
+      width: 410px;
+      height: 480px;
+      background-color: rgba(205, 207, 210, 0.998);
+      border: 10px solid rgb(28, 42, 39);
+      border-left: none;
+      border-right: none;
+      color: rgb(38, 33, 73);
+      z-index: 111;
+    }
+
+    #settings input[type=text] {
+      width: 100%;
+      background-color: rgba(255, 253, 251, 0.628);
+      padding: 1% 40px;
+      font-size: 24px;
+      line-height: 200%;
+      margin: 2% 0;
+    }
+
+    #settings #settings_title {
+      margin-bottom: 6%;
+      padding: 10% 40px;
+      line-height: 300%;
+      background-color: rgba(40, 85, 81, 0.628);/*****************/
+    }
+
+    #settings #settings_btn {
+      width: 100%;
+      margin-bottom: 3%;
+      padding: 9% 40px;
+      line-height: 120%;
+      font-size: 24px;
+    }
+
+    #settings #settings_btn:hover {
+      background: linear-gradient(to bottom, white, cadetblue);
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #settings {
+        left: 10%;
+        z-index: 111;
+      }
+
+      #sounderbox {
+        bottom: 5px;
+        margin-left: -125px;
+        width: 410px;
+        height: 80px;
+        z-index: 225;
+        opacity: 75%;
+        border: 5px solid white;
+        background: transparent;
+        display: flex;
+        align-items: center;
+      }
+
+      #sounderbox #sounder {
+        opacity: 20%;
+        width: 400px;
+        height: 60px;
+        z-index: 226;
+      }
+
+      #sounderbox #sounder:hover {
+        opacity: 80%;
+        width: 400px;
+        height: 60px;
+        z-index: 226;
+      }
+    }
+
+    .container {
+      width: 400px;
+      height: 500px;
+      background-color: rgb(25, 68, 69);
+      margin: 50px auto;
+      display: flex;
+    }
+
+    .board {
+      width: 90%;
+      height: 90%;
+      margin: 15px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(55, 90, 92);
+    }
+
+    .player {
+      width: 95%;
+      height: 15%;
+      margin: 10px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(36, 59, 60);
+      border: 9px solid rgb(28, 42, 39);
+    }
+
+    .player .name {
+      width: 40%;
+      height: 96%;
+      background: rgba(38, 14, 61, 0.346);
+      color: cadetblue;
+      text-align: left;
+      font-size: 22px;
+      font-size: 14px;
+      line-height: 180%;
+    }
+
+    .player .name #name {
+      color: rgba(240, 255, 255, 0.57);
+    }
+
+    .player .lives {
+      width: 30%;
+      height: 96%;
+      background: rgba(123, 78, 165, 0.346);
+      color: rgb(129, 195, 197);
+      text-align: center;
+      font-size: 22px;
+      font-size: 14px;
+      line-height: 180%;
+    }
+
+    .player .score {
+      width: 30%;
+      height: 96%;
+      background: rgba(38, 14, 61, 0.346);
+      color: cadetblue;
+      text-align: right;
+      font-size: 22px;
+      font-size: 16px;
+      line-height: 170%;
+    }
+
+    .lettermistakes {
+      width: 99%;
+      height: 12%;
+      background: rgb(28, 42, 39);
+      color: rgb(169, 162, 167);
+      text-align: left;
+      padding-left: 5%;
+      letter-spacing: 2px;
+      border: 1px solid rgb(75, 96, 91);
+      border-bottom: none;
+      padding: 2% auto;
+      font-size: 20px;
+      font-size: 12px;
+      line-height: 220%;
+    }
+
+    .inputs {
+      width: 99%;
+      height: 25%;
+      margin: 2px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgb(14, 23, 23);
+      font-size: 60px;
+      font-size: 62px;
+      line-height: 120%;
+    }
+
+    .inputs select {
+      width: 50%;
+      height: 80%;
+      background: rgb(151, 145, 145);
+      font-size: 60px;
+      text-align: center;
+      font-size: 62px;
+      line-height: 120%;
+    }
+
+    .inputs button {
+      width: 34%;
+      height: 87%;
+      color: azure;
+      background: rgb(75, 96, 91);
+      border: 3px solid rgb(153, 179, 174);
+      font-size: 40px;
+      font-size: 22px;
+      line-height: 120%;
+    }
+
+    .inputs button:hover {
+      width: 34%;
+      height: 87%;
+      color: rgb(156, 232, 232);
+      background: rgb(122, 151, 145);
+      border: 3px solid rgb(73, 93, 89);
+      cursor: pointer;
+    }
+
+    .word {
+      padding-top: 17%;
+      height: 35%;
+      width: 127%;
+      background: silver;
+      border: 10px solid rgb(28, 42, 39);
+      border-top: none;
+      text-align: center;
+      font-size: 56px;
+      font-size: 23px;
+      line-height: 120%;
+      font-weight: bold;
+  
+      /*border-top-left-radius: 15%;
+      border-top-right-radius: 15%;*/
+    }
+    #word{
+      visibility: hidden;
+    }
+
+    .correct {
+      position: fixed;
+      top: 100px;
+      left: 100px;
+      color: rgba(255, 0, 0, 0);
+      font-size: 40px;
+    }
+
+    #score {
+      text-align: center !important;
+      color: rgba(255, 166, 0, 0.597);
+      font-size: 12px;
+    }
+
+    #playername {
+      width: 100%;
+      color: black;
+    }
+
+    #sounderbox {
+      position: absolute;
+      bottom: 5px;
+      left: 35%;
+      width: 410px;
+      height: 80px;
+      z-index: 225;
+      opacity: 75%;
+      border: 5px solid white;
+      background: transparent;
+      display: none;/* flex */
+      align-items: center;
+    }
+
+    #sounderbox #sounder {
+      opacity: 20%;
+      width: 400px;
+      height: 60px;
+      z-index: 226;
+    }
+
+    #sounderbox #sounder:hover {
+      opacity: 80%;
+      width: 400px;
+      height: 60px;
+      z-index: 226;
+    }
+
+    #winners {
+      position: absolute;
+      display: none;
+      background: linear-gradient(to top, rgb(14, 24, 17), rgb(93, 139, 111), rgb(57, 98, 72), rgb(65, 112, 83), rgb(13, 23, 17));
+      background: #658281;
+      margin-top: 135px;
+      margin-left: 0;
+      width: 100%;
+      height: 82%;
+      color: goldenrod;
+      font-size: 60px;
+      text-align: center;
+      padding-top: 2%;
+      /*border: 10px solid rgb(28, 42, 39);*/
+      z-index: 333;
+    }
+
+
+    #winners #msg {
+      width: 100%;
+      color: goldenrod;
+      font-size: 60px;
+      text-align: center;
+      padding-top: 2%;
+      line-height: 260%;
+  
+    }
+
+    #winners #winning_player {
+      width: 100%;
+      color: goldenrod;
+      font-size: 25px;
+      text-align: justify;
+      padding: 4% auto;
+      line-height: 220%;
+      text-indent: 20px;
+    }
+    #winners #rightanswer {
+      width: 100%;
+      color: rgb(230, 205, 142);
+      font-size: 25px;
+      text-align: justify;
+      padding: 4% auto;
+      line-height: 220%;
+      text-indent: 20px;
+    }
+
+    #winners #winning_score {
+      width: 100%;
+      color: goldenrod;
+      font-size: 30px;
+      text-align: justify;
+      padding: 4% auto;
+      text-indent: 20px;
+      line-height: 220%;
+    }
+  </style>
+</head>
+
+<body id="gameboard">
+
+  <div id="settings">
+    <div class="winners" id="winners">
+      <div id="msg"></div>
+      <div id="winning_player"></div>
+      <div id="rightanswer"></div>
+      <div id="winning_score"></div>
+    </div>
+    <input type="text" id="settings_title" value="GUESSING GAME GG">
+    <input type="text" id="playername" value="" placeholder="Player Name ...">
+    <input type="text" id="backname" value="" placeholder="background ...">
+    <input type="text" id="soundname" value="" placeholder="music ...">
+    <input type="button" id="settings_btn" value="PLAY">
+  </div>
+
+  <div class="container" id="gamecontainer">
+    <div class="board d-flex direction-column">
+      <div class="player d-flex direction-row">
+        <div class="name">
+          player
+          <br>
+          <span id="name"></span>
+        </div>
+        <div class="lives">
+          <span id="live"></span>
+          <br>
+          lives
+        </div>
+        <div class="score">
+          score
+          <br>
+          <h4 id="score"></h4>
+        </div>
+      </div>
+      <div class="lettermistakes" id="lettermistakes">
+        mistakes: <span id="mistakes"></span>
+      </div>
+      <div class="pizzle word" id="word">
+        <span id="converffromdash"></span>
+      </div>
+      <div class="inputs">
+
+        <select type="text" name="letter" id="letter" autofocus>
+          <option value="a">a</option>
+          <option value="b">b</option>
+          <option value="c">c</option>
+          <option value="d">d</option>
+
+          <option value="e">e</option>
+          <option value="f">f</option>
+          <option value="g">g</option>
+          <option value="h">h</option>
+
+          <option value="i">i</option>
+          <option value="j">j</option>
+          <option value="k">k</option>
+          <option value="l">l</option>
+          <option value="m">m</option>
+          <option value="n">n</option>
+          <option value="o">o</option>
+          <option value="p">p</option>
+          <option value="q">q</option>
+          <option value="r">r</option>
+          <option value="s">s</option>
+          <option value="t">t</option>
+          <option value="u">u</option>
+          <option value="v">v</option>
+          <option value="w">w</option>
+          <option value="x">x</option>
+          <option value="y">y</option>
+          <option value="z">z</option>
+        </select>
+
+        <button id="guess" onclick="">guess</button>
+
+      </div>
+    </div>
+    <div id="sounderbox">
+      <video id="sounder" controls autoplay name="media">
+        <source type="audio/mpeg">
+      </video>
+    </div>
+  </div>
+
+  <div class="correct"></div>
+  <script>
+    let wordbox = document.getElementById('word');
+    let rightanswer = document.getElementById('rightanswer');
+    let winners = document.getElementById("winners");
+    let msg = document.getElementById("msg");
+    let winnersplayer = document.getElementById("winning_player");
+    let winning_score = document.getElementById("winning_score");
+    let hearts = 2;
+    let sounderbox = document.getElementById("sounderbox");
+    let sounder = document.getElementById("sounder");
+    let settings_btn = document.getElementById('settings_btn');
+    let playerbox = document.getElementById('playername');
+    let backbox = document.getElementById('backname');
+    let soundbox = document.getElementById('soundname');
+
+
+    settings_btn.addEventListener('click', () => {
+      document.getElementById('settings').style.display = 'none';
+      document.getElementById('winners').style.display = 'none';
+      wordbox.style.visibility='visible';
+      game(playerbox.value, backbox.value, soundbox.value, hearts);
+    })
+
+
+
+    function game(player, back, sound, hearts) {
+    
+    
+      let result = '';
+      let gameboard = document.getElementById('gameboard');
+      let differenceinmistakes = 0;
+      let scorebox = document.getElementById('score');
+      let live = document.getElementById('live');
+      let correct = document.querySelector('.correct');
+      correct.innerHTML = null;
+      let nofmistakes = 0;
+      let nofcorrectness = 0;
+      let notin = [];
+      let mistakes = document.getElementById('mistakes');
+      //lettermistakes.innerHTML =notin.join(' ');
+      let isin = [];
+      // containers
+      /////////////////////////| ADDING PLAYER NAME | BACKGROUND | SOUND
+      let name = '';
+      if (player !== '') {
+        name = player;
+      } else {
+        name = 'ibrahim';
+      }
+
+      let backforgame = back;
+      if (backforgame === 'back1') {
+        gameboard.style.backgroundImage = "url('./img/back1.png')";
+      } else if (backforgame === 'back2') {
+        gameboard.style.backgroundImage = "url('./img/back2.jpg')";
+      } else if (backforgame === 'back3') {
+        gameboard.style.backgroundImage = "url('./img/back3.jpg')";
+      } else {
+        gameboard.style.backgroundImage = "none";
+      }
+      let soundforgame = sound;
+      if (soundforgame === 'guess') {
+        sounder.src = "./snd/guess.mp3";
+        sounderbox.style.display='flex';
+      } else if (soundforgame === 'reflect') {
+        sounder.src = "./snd/reflect.mp3";
+        sounderbox.style.display='flex';
+      } else if (soundforgame === 'night') {
+        sounder.src = "./snd/night.mp3";
+        sounderbox.style.display='flex';
+      } else {
+        sounder.src = "";
+        sounderbox.style.display='none';
+      }
+      //////////////////////////////////////////////////////////////////
+      const namebox = document.getElementById('name');
+      namebox.innerHTML = name;
+
+      let dic = ['sama', 'sara', 'budy', 'ibrahim', 'heba', 'abdlrahman'];
+      //get the length of the dictionary array
+      let len = dic.length;
+      //get random number from 0 to the length of the dictionary
+      rand = Math.floor(Math.random() * (len));
+      //set lives equal to the leng the word
+      console.log(dic[rand]);
+      //get from dictionary names random name like 'sama' ,'sara', 'budy'
+      let word = dic[rand];
+      // convert the word string to array of  letter characters ['s','a','m','a']
+      word = Object.assign([], word);
+      //set lives equal to the leng the word
+      let lives = hearts;
+      lives = word.length;
+      // start while loop
+
+      let wordlen = word.length;
+      let dashwithdashesleft = 0;
+      let nofword = word.length;
+      let score = 0;
+      let finalscore = 0;
+      scorebox.innerHTML = score;
+      console.log('lives: ', lives);
+      live.innerHTML = lives;
+      console.log(word)
+      let dash = [];
+      word.forEach((item, index) => {
+        dash.push('-')
+      })
+
+      let nofdashes = dash.length;
+      let lettergenerator = document.getElementById('letter');
+      let guess = '';
+      // get duplicated items
+      function letters(word) {
+        let template = word.map((letter, i) => `<span>${letter}</span>`).join(' ');
+        document.querySelector('#converffromdash').innerHTML = template;
+      }
+      letters(dash)
+      let btno = document.querySelector('button');
+      let idx = [];
+      lettergenerator.addEventListener('change', (e) => {
+
+      })
+      btno.addEventListener('click', () => {
+        let v = lettergenerator.value;
+        console.log("value of guessing: ", v);
+        if (word.includes(v)) {
+          isin.push(v);
+          console.log('correct isin: ', isin);
+          nofcorrectness += 1;
+          nofdashes -= 1;//dash array
+
+          console.log('correctness : ', nofcorrectness);
+          correct.innerHTML = nofcorrectness;
+          lives = lives + nofcorrectness;
+          live.innerHTML = lives;
+          score = score + (lives * wordlen);
+        } else {
+          notin.push(v);
+          console.log('wrong notin: ', notin);
+          mistakes.innerHTML = notin.join(' ');
+          nofmistakes += 1;
+          lives = lives - nofmistakes;
+          live.innerHTML = lives;
+          console.log('mistakes : ', nofmistakes);
+          //score = lives * (Math.abs(wordlen - nofmistakes))
+
+        }
+        document.querySelector('#converffromdash').innerHTML = "";
+        word.forEach((letter, index) => {
+          let c = lettergenerator.value;
+          guess = c;
+          console.log('guess: ', guess);
+
+          if (letter === c) {
+            idx.push(index);
+            idx.forEach((i, index) => {
+              if (letter === word[i]) {
+                console.log(i);
+                dash[i] = lettergenerator.value;
+                letters(dash);
+              } else {
+                letters(dash);
+
+              }
+            })
+          } else {
+            letters(dash);
+          }
+        })
+        console.log(idx);
+        removetakenletter();
+        if (dash.includes('-')) {
+
+          if (lives <= 0) {
+            result = 'LOSER';
+            if(result==='LOSER'){
+              score =0;
+            }
+            console.log("loser ")
+            document.getElementById('settings').style.display = 'block';
+            wordbox.style.visibility='hidden';
+            setTimeout(() => {
+              winners.style.display = 'block';
+              msg.innerHTML = result;
+            }, 2000)
+            setTimeout(() => {
+              winnersplayer.innerHTML = 'player: ' + name;
+            }, 3000)
+            setTimeout(() => {
+              rightanswer.innerHTML = 'word:' + word.join('');// rightanswer
+            }, 5000)
+            setTimeout(() => {
+              winning_score.innerHTML = 'score: ' + score;// rightanswer
+            }, 7000)
+            setTimeout(() => {
+              window.location.reload();
+            }, 12000)
+          }
+        } else {
+          result = 'WINNER';
+          if(result==='WINNER'){
+              score =score;
+          }
+          console.log("winner ")
+          document.getElementById('settings').style.display = 'block';
+          wordbox.style.visibility='hidden';
+          setTimeout(() => {
+            winners.style.display = 'block';
+            msg.innerHTML = result;
+          }, 2000)
+          setTimeout(() => {
+            winnersplayer.innerHTML = 'player: ' + name;
+          }, 3000)
+          setTimeout(() => {
+            rightanswer.innerHTML = 'word:' + word.join('');// rightanswer
+          }, 5000)
+          setTimeout(() => {
+            winning_score.innerHTML = 'score: ' + score;// rightanswer
+          }, 7000)
+          setTimeout(() => {
+            window.location.reload();
+          }, 12000)
+        }
+
+        if (wordlen - nofcorrectness === 0) {
+          score = score * nofcorrectness;
+          console.log('score: ', score);
+        } else if ((wordlen - nofcorrectness) <= 1) {
+          score = score * nofcorrectness;
+          console.log('score: ', score);
+        } else if ((wordlen - nofcorrectness) <= 2) {
+          score = score * nofcorrectness;
+          console.log('score: ', score);
+        } else if ((wordlen - nofcorrectness) <= 3) {
+          score = score * nofcorrectness;
+          console.log('score: ', score);
+        } else if ((nofmistakes - wordlen) == 0) {
+          score = score / nofmistakes;
+          console.log('score: ', score);
+        } else {
+          console.log('score: ', score);
+        }
+        scorebox.innerHTML = score;
+      });
+    }
+    function removetakenletter() {
+      var x = document.getElementById("letter");
+      x.remove(x.selectedIndex);
+    }
+
+  </script>
+</body>
+
+</html>
