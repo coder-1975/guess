@@ -23,7 +23,7 @@
       box-sizing: border-box;
       outline: none;
       border: none;
-      
+
     }
 
     body {
@@ -35,172 +35,439 @@
       align-items: center;
       overflow: hidden;
       background-color: #123;
-      text-align:center;
+      text-align: center;
     }
-    marquee{
-      width:100%;
-      background:#222;
+
+    marquee {
+      width: 100%;
+      background: #222;
     }
+
     @media screen and (min-width: 480px) {
-    /*CSS if screen size >= 480px*/
+
+      /*CSS if screen size >= 480px*/
       #result,
       #gamecontainer,
       #settings,
-      #sounderbox{
-      height: 500px;
-      position: absolute;
-      width: 350px;
-      background-color: blanchedalmond;
-      box-shadow: 2px 2px 6px 5px black;
-      box-sizing:border-box;
-      margin:auto;
-      font-size: 23px !important;
-    }
+      #sounderbox {
+        height: 500px;
+        position: absolute;
+        width: 350px;
+        background-color: blanchedalmond;
+        box-shadow: 2px 2px 6px 5px black;
+        box-sizing: border-box;
+        margin: auto;
+        font-size: 23px !important;
+      }
+      #result {
+        background-color: rgb(77, 68, 54);
+        z-index: 98;
+        #winners {
+          background: #cbc69e;
+          width: 350px;
+          height: 100%;
+          border: 15px double #777321;
+          display: flex;
+          flex-direction: column;
+          font-size: 30px;
+          color: #cbc69e;
+          text-shadow: 3px 2px 1px #123;
 
-    #result {
-      display: none;
-      background-color: rgb(77, 68, 54);
-      z-index:98;
-    }
+          #msg {
+            background: #666451;
+            width: 320px;
+            height: 25.5%;
+            font-size: 60px;
+            padding-top: 12%;
+          }
 
-    #gamecontainer {
-      display: none;
-      background-color: rgb(107, 96, 79);
-      z-index:99;
-    }
+          #winning_player {
+            background: #666451;
+            width: 320px;
+            height: 24.4%;
+            font-size: 35px;
+            padding-top: 12%;
+          }
 
-    #settings {
-      min-width: 350px;
-      max-width: 350px;
-      display: flex;
-      background-color: rgb(137, 127, 111);
-      z-index:100;
+          #rightanswer {
+            background: #666451;
+            width: 320px;
+            height: 24.5%;
+            padding-top: 12%;
+          }
 
-      #information {
+          #winning_score {
+            background: #666451;
+            width: 320px;
+            height: 24.6%;
+            padding-top: 12%;
+          }
+        }
+      }
+
+      #gamecontainer {
+        display: none;
+        background-color: rgb(107, 96, 79);
+        z-index: 99;
         min-width: 350px;
         max-width: 350px;
         background: linear-gradient(to right, #123, #321, #456);
-        padding: 5% 0;
+        padding: .1% 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         box-sizing: border-box;
-        gap: 20px;
+        gap: 3px;
 
-        #settings_title {
-          min-width: 350px;
-          text-align: center;
-          padding: 10px 0;
-          background-color: #666456;
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          align-items:center;
-          gap:5px;
-            #master{
-              color: #cbc69e;
-              font-size:24px !important;
-              min-height:6px;
+        #board {
+          background: #999123;
+          width: 345px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          box-sizing: border-box;
+          margin: 3px;
+          padding: 5px 3px;
+
+          #player {
+            background: #123;
+            background: linear-gradient(to top, rgb(12, 24, 35), rgb(54, 106, 159));
+            width: 337px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            box-sizing: border-box;
+
+            .name {
+              width: 140px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              box-sizing: border-box;
+              gap: 12px;
+
+              #name {
+                width: 140px;
+                color: #cbc69e;
+                text-align: left;
+              }
             }
-            #creatorofapp{
-              font-size:13px !important;
-              color:grey;
-              text-align:left;
-              text-indent:5px;
-              min-height:6px;
-              background:#222 !important;
-              width:350px;
-              font-weight:bold;
-           }
-        }
-        
 
-        #settings_btn {
-          min-width: 350px;
-          text-align: center;
-          padding: 20px 0;
-          color: white;
-          background: linear-gradient(to top, orange, #123, #321, #456);
+            .lives {
+              width: 80px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              box-sizing: border-box;
+              gap: 12px;
+
+              #live {
+                width: 80px;
+                color: #cbc69e;
+                text-align: left;
+              }
+            }
+
+            .score {
+              width: 80px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              box-sizing: border-box;
+              text-align: right;
+              text-indent: 20px;
+              gap: 12px;
+
+              #score {
+                width: 80px;
+                color: #cbc69e;
+                text-align: right;
+              }
+            }
+
+          }
         }
 
-        #settings_btn:hover {
-          background: linear-gradient(to top, orange, #999123, #777321, #666456);
-          cursor: pointer;
-        }
 
-        #playername {
-          min-width: 350px;
+        #lettermistakes {
+          width: 350px;
+          background-color: #cbc69e;
           text-align: left;
-          text-indent:44px;
-          padding: 15px 0;
-          background-color: #666456;
-          color: #cbc69e;
-          font-size: 26px !important;
+          display: flex;
+          margin-top: 2px;
+
+          #mistakes {
+            width: 270px;
+            background-color: #999123;
+            text-indent: 5px;
+          }
         }
 
-        #backname {
-          min-width: 350px;
-          text-align: left;
-          text-indent:44px;
-          padding: 15px 0;
-          background-color: #666456;
-          color: #cbc69e;
-          font-size: 26px !important;
+        #word {
+          background-image: url('./img/back4.jpg');
+          display: flex;
+          width: 350px;
+          height: 200px;
+          margin: 2px auto;
+
+          #converffromdash {
+            color: antiquewhite;
+            font-size: 38px;
+            letter-spacing: 2px;
+            background: rgb(8, 17, 25);
+            padding: 0 18px;
+            padding-bottom: 10px;
+            border: 7px solid rgb(6, 12, 18);
+            background: linear-gradient(to bottom, rgba(56, 88, 120, 0.394), #123, rgba(34, 77, 120, 0.417));
+          }
         }
 
-        #soundname {
+
+      }
+
+      #settings {
+        min-width: 350px;
+        max-width: 350px;
+        display: flex;
+        background-color: rgb(137, 127, 111);
+        z-index: 100;
+
+        #information {
           min-width: 350px;
-          text-align: left;
-          text-indent:44px;
-          padding: 15px 0;
-          background-color: #666451;
-          color: #cbc69e;
-          font-size: 26px !important;
+          max-width: 350px;
+          background: linear-gradient(to right, #123, #321, #456);
+          padding: 5% 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          box-sizing: border-box;
+          gap: 20px;
+
+          #settings_title {
+            min-width: 350px;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #666456;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            #master {
+              color: #cbc69e;
+              font-size: 24px !important;
+              min-height: 6px;
+            }
+
+            #creatorofapp {
+              font-size: 13px !important;
+              color: grey;
+              text-align: left;
+              text-indent: 5px;
+              min-height: 6px;
+              background: #222 !important;
+              width: 350px;
+              font-weight: bold;
+            }
+          }
+
+
+          #settings_btn {
+            min-width: 350px;
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            background: linear-gradient(to top, orange, #123, #321, #456);
+          }
+
+          #settings_btn:hover {
+            background: linear-gradient(to top, orange, #999123, #777321, #666456);
+            cursor: pointer;
+          }
+
+          #playername {
+            min-width: 350px;
+            text-align: left;
+            text-indent: 44px;
+            padding: 15px 0;
+            background-color: #666456;
+            color: #cbc69e;
+            font-size: 26px !important;
+          }
+
+          #backname {
+            min-width: 350px;
+            text-align: left;
+            text-indent: 44px;
+            padding: 15px 0;
+            background-color: #666456;
+            color: #cbc69e;
+            font-size: 26px !important;
+          }
+
+          #soundname {
+            min-width: 350px;
+            text-align: left;
+            text-indent: 44px;
+            padding: 15px 0;
+            background-color: #666451;
+            color: #cbc69e;
+            font-size: 26px !important;
+          }
         }
       }
+
+      #sounderbox {
+        min-height: 15%;
+        max-height: 15%;
+        visibility: hidden;
+        display: flex;
+        flex-direction: row !important;
+        justify-content: start;
+        min-width: 350px !important;
+        max-width: 350px !important;
+        width: 350px !important;
+        background-color: #777321;
+        z-index: 96;
+
+        #sounder {
+        
+          width: 100%;
+          height: 100%;
+          opacity: .5;
+          min-width: 350px !important;
+          max-width: 350px !important;
+          width: 350px !important;
+          z-index: 444;
+
+          #sndbtn {
+          
+            width: 1%;
+            height: 11%;
+            opacity: .5;
+            min-width: 50px !important;
+            max-width: 50px !important;
+            width: 50px !important;
+            z-index: 445;
+          }
+
+          #sndbtn:hover {
+            cursor: pointer;
+            background: #123;
+            color: #999123;
+            z-index: 445;
+          }
+        }
+        #sounder:hover {
+          width: 100%;
+          opacity: .8;
+        }
+      }
+    }
+
+    /* test */
+    #inputs {
+      display: flex;
+      width: 350px;
+      height: 200px;
+      margin: 2px auto;
+      background: rgb(89, 102, 52);
+
+      #letter {
+        background: #123;
+        font-size: 80px;
+        color: #999123;
+      }
+
+      select::-webkit-scrollbar {
+        display: none;
+      }
+
+      #guess {
+        /*
+        background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
+        font-size: 40px;
+        color: #999123;
+        color: transparent;
+        height: 110px;
+        border-radius: 50%;
+        transition: 4s;
+        */
+      }
+
+      #guess:hover {
+        /*
+        transition: 4s;
+        background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232));
+        font-size: 40px;
       
-   }
-
-
-    #sounderbox {
-      min-height: 15%;
-      max-height: 15%;
-      visibility: hidden;
-      flex-direction: row !important;
-      justify-content: start;
-      min-width: 350px !important;
-      max-width: 350px !important;
-      width: 350px !important;
-      background-color: #777321;
-      z-index:97;
+        height: 110px;
+        border-radius: 50%;
+        cursor: pointer;
+        */
+      }
     }
 
-
-    #sounder {
-      visibility: hidden;
-      width: 100%;
-      opacity: .5;
+    .backo {
+      background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
+      font-size: 40px;
+      /*color: #999123;*/
+      color: transparent;
+      height: 110px;
+      border-radius: 50%;
+      transition: 4s;
     }
 
-    #sounder:hover {
-      width: 100%;
-      opacity: .8;
+    .backo:hover {
+      transition: 4s;
+      background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232));
+      font-size: 40px;
+      /*color: #d2ca5d00;*/
+      height: 110px;
+      border-radius: 50%;
+      cursor: pointer;
     }
+
+    .facko {
+      background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
+      font-size: 40px;
+      color: transparent;
+      height: 110px;
+      border-radius: 50%;
+      transition: 4s;
     }
-    
+
+    .facko:hover {
+      background: radial-gradient(rgba(125, 147, 168, 0.382), rgba(255, 255, 0, 0.234), rgb(8, 16, 24), rgba(53, 142, 231, 0.394));
+      font-size: 40px;
+      color: transparent;
+      height: 110px;
+      border-radius: 50%;
+      transition: 4s;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body id="gameboard">
   <div id="result">
     <div class="winners" id="winners">
-      <div id="msg"></div>
-      <div id="winning_player"></div>
-      <div id="rightanswer"></div>
-      <div id="winning_score"></div>
+      <div id="msg">WINNER</div>
+      <div id="winning_player">PLAYER | IBRAHIM</div>
+      <div id="rightanswer">WORD | SAMA</div>
+      <div id="winning_score">SCORE | 20000</div>
     </div>
   </div>
+
+
   <div id="settings">
     <div id="information" class="info">
       <div id="settings_title">
@@ -228,15 +495,15 @@
         </div>
         <div class="score">
           score
-          <h4 id="score">200</h4>
+          <span id="score">200</span>
         </div>
       </div>
     </div>
     <div class="lettermistakes" id="lettermistakes">
-      mistakes: <span id="mistakes">4</span>
+      mistakes <span id="mistakes">4</span>
     </div>
     <div class="pizzle word" id="word">
-      <span id="converffromdash"></span>
+      <span id="converffromdash">- - - - - - - - - -</span>
     </div>
     <div class="inputs" id="inputs">
       <select type="text" name="letter" id="letter" autofocus>
@@ -269,7 +536,7 @@
         <option value="y">y</option>
         <option value="z">z</option>
       </select>
-      <button id="guess" onclick="">guess</button>
+      <button id="guess" class="backo facko" onclick="">guess</button>
     </div>
   </div>
 
@@ -277,7 +544,45 @@
     <video id="sounder" controls autoplay name="media">
       <source type="audio/mpeg">
     </video>
+    <button id="sndbtn">hide</button>
   </div>
+
+
+  <script>
+    /*
+      #result,
+      #gamecontainer,
+      #settings,
+      #sounderbox
+      */
+    // btn to hide the sounder
+    document.getElementById("sndbtn").onclick = () => {
+      document.getElementById("sndbtn").parentElement.style.visibility = 'hidden';
+      //document.getElementById("sounder").style.visibility = 'hidden';
+    }
+    // click setting btn to out of settings and start game
+    document.getElementById("settings_btn")
+      .addEventListener('click', () => {
+        document.getElementById("settings").style.display = "none";
+        document.getElementById("gamecontainer").style.display = "flex";
+        // startgame()  run start game function
+
+        //here please
+
+        /////////////////////////////////////////
+      })
+    // change style for guess btn when clicked to choose letter
+    guessbtn = document.getElementById("guess");
+    guessbtn.addEventListener("mousedown", () => {
+      guessbtn.classList.add("backo");
+      guessbtn.classList.remove("facko");
+    })
+    guessbtn.addEventListener("mouseout", () => {
+      guessbtn.classList.add("facko");
+      guessbtn.classList.remove("backo");
+    })
+    //////////////////////////////////////////////////////////////
+  </script>
 
   <!--<script>
     
