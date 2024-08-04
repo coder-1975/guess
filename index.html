@@ -17,13 +17,11 @@
 
   <style>
     * {
-      /*max-width: 350px;*/
       padding: 0;
       margin: auto;
       box-sizing: border-box;
       outline: none;
       border: none;
-
     }
 
     body {
@@ -43,9 +41,6 @@
       background: #222;
     }
 
-    /*@media screen and (min-width: 480px) {*/
-
-      /*CSS if screen size >= 480px*/
       #result,
       #gamecontainer,
       #settings,
@@ -374,9 +369,7 @@
           opacity: .8;
         }
       }
-    /*}*/
 
-    /* test */
     #inputs {
       display: flex;
       width: 350px;
@@ -393,36 +386,11 @@
       select::-webkit-scrollbar {
         display: none;
       }
-
-      #guess {
-        /*
-        background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
-        font-size: 40px;
-        color: #999123;
-        color: transparent;
-        height: 110px;
-        border-radius: 50%;
-        transition: 4s;
-        */
-      }
-
-      #guess:hover {
-        /*
-        transition: 4s;
-        background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232));
-        font-size: 40px;
-      
-        height: 110px;
-        border-radius: 50%;
-        cursor: pointer;
-        */
-      }
     }
 
     .backo {
       background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
       font-size: 40px;
-      /*color: #999123;*/
       color: transparent;
       height: 110px;
       border-radius: 50%;
@@ -433,7 +401,6 @@
       transition: 4s;
       background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232));
       font-size: 40px;
-      /*color: #d2ca5d00;*/
       height: 110px;
       border-radius: 50%;
       cursor: pointer;
@@ -502,10 +469,10 @@
       </div>
     </div>
     <div class="lettermistakes" id="lettermistakes">
-      mistakes <span id="mistakes">4</span>
+      mistakes <span id="mistakes"></span>
     </div>
     <div class="pizzle word" id="word">
-      <span id="converffromdash">- - - - - - - - - -</span>
+      <span id="converffromdash"></span>
     </div>
     <div class="inputs" id="inputs">
       <select type="text" name="letter" id="letter" autofocus>
@@ -600,16 +567,19 @@
       let nofcorrectness = 0;
       let notin = [];
       let mistakes = document.getElementById('mistakes');
-      //lettermistakes.innerHTML =notin.join(' ');
       let isin = [];
-      // containers
-      /////////////////////////| ADDING PLAYER NAME | BACKGROUND | SOUND
+      // SET PLAYER NAME ----------------------------------
       let name = '';
       if (player !== '') {
         name = player;
       } else {
-        name = 'ibrahim';
+        name = 'player';
       }
+
+      const namebox = document.getElementById('name');
+      namebox.innerHTML = name;
+      // ----------------------------------------------------
+      // SET BACKGROUND IMAGES ----------------------------------
       let backforgame = back;
       if (backforgame === 'back1') {
         gameboard.style.backgroundImage = "url('back1.png')";
@@ -620,6 +590,8 @@
       } else {
         gameboard.style.backgroundImage = "none";
       }
+      // --------------------------------------------------------
+      // SET BACKGROUNG SOUND ----------------------------------
       let soundforgame = sound;
       if (soundforgame === 'guess') {
         sounder.src = "guess.mp3";
@@ -634,9 +606,8 @@
         sounder.src = "";
         sounderbox.style.display = 'none';
       }
+      // -------------------------------------------------
       
-      const namebox = document.getElementById('name');
-      namebox.innerHTML = name;
       // dictionary of words to play with
       let dic = [
         'retal',
@@ -665,8 +636,7 @@
         'mamdouh',
         'amal',
         'mahfouz',
-        'salman',
-        'notoneofourrelatives'];
+        'salman'];
       //get the length of the dictionary array
       let len = dic.length;
       //get random number from 0 to the length of the dictionary
@@ -681,20 +651,24 @@
       let lives = hearts;
       lives = word.length;
       // start while loop
+      // GET THE NUMBER OF LETTERS IN EACH WORD
       let wordlen = word.length;
       let dashwithdashesleft = 0;
       let nofword = word.length;
+      // SET THE SCORE ------------------
       let score = 0;
       let finalscore = 0;
       scorebox.innerHTML = score;
+      // -------------------------------
       console.log('lives: ', lives);
+      // SHOW THE LIVES AVAILABLE 
       live.innerHTML = lives;
-      console.log(word)
+      // SET THE EQUALIVENT DASHES TO THE WORD -----------------
       let dash = [];
       word.forEach((item, index) => {
         dash.push('-')
       })
-
+      // -------------------------------------------------------
       let nofdashes = dash.length;
       let lettergenerator = document.getElementById('letter');
       let guess = '';
@@ -714,7 +688,7 @@
           isin.push(v);
           console.log('correct isin: ', isin);
           nofcorrectness += 1;
-          nofdashes -= 1;//dash array
+          nofdashes -= 1;
           console.log('correctness : ', nofcorrectness);
           lives = lives + nofcorrectness;
           live.innerHTML = lives;
@@ -778,7 +752,7 @@
             }, 7000)
             setTimeout(() => {
               window.location.reload();
-            }, 12000)
+            }, 15000)
           }
         } else {
           result = 'WINNER';
@@ -806,7 +780,7 @@
           }, 7000)
           setTimeout(() => {
             window.location.reload();
-          }, 12000)
+          }, 15000)
         }
 
         if (wordlen - nofcorrectness === 0) {
