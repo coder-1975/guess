@@ -214,7 +214,7 @@
               text-align: right;
               text-indent: 20px;
               gap: 12px;
-	font-size: 12px !important;
+	      font-size: 12px !important;
               #score {
                 width: 80px;
                 color: #cbc69e;
@@ -446,6 +446,7 @@
     .backo:hover {
       transition: 4s;
       background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232)) !important;
+      background: linear-gradient(rgba(25, 47, 68, 0.382), rgba(55, 55, 55, 0.234), rgb(8, 16, 24), rgba(53, 42, 31, 0.394)) !important;
       height: 110px;
       border-radius: 50%;
       cursor: pointer;
@@ -463,6 +464,7 @@
 
     .facko:hover {
       background: radial-gradient(rgba(125, 147, 168, 0.382), rgba(255, 255, 255, 0.234), rgb(8, 16, 24), rgba(53, 142, 231, 0.394)) !important;
+      background: linear-gradient(rgba(25, 47, 68, 0.382), rgba(55, 55, 55, 0.234), rgb(8, 16, 24), rgba(53, 42, 31, 0.394)) !important;
       color: transparent !important;
       height: 110px;
       border-radius: 50%;
@@ -474,5 +476,3 @@
       color: transparent !important;
       text-shadow: 2px 2px 2px rgba(255,255,255,0.5)  !important;
     }
-     
-  
