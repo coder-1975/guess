@@ -4,7 +4,7 @@
       box-sizing: border-box;
       outline: none;
       border: none;
-      filter:contrast(100%); /* firt change og light than dark*/
+     /* filter:contrast(100%);  firt change og light than dark*/
       background-color: grey !important;
       background: linear-gradient(to top,#987,silver, orange, grey,#333, #987) !important;
       color: antiquewhite !important;
