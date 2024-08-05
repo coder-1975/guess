@@ -4,8 +4,11 @@
       box-sizing: border-box;
       outline: none;
       border: none;
-      filter:contrast(200%); /* firt change og light than dark*/
-      
+      filter:contrast(100%); /* firt change og light than dark*/
+      background-color: grey !important;
+      background: linear-gradient(to top,#987,silver, orange, grey,#333, #987) !important;
+      color: antiquewhite !important;
+      text-shadow: 2px 2px 2px black;
     }
 
     body {
@@ -16,13 +19,15 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      background-color: #123;
+      background: grey !important;
       text-align: center;
     }
 
     marquee {
       width: 100%;
-      background: #222;
+      background: linear-gradient(to top,#987, darkred, grey,#777, #987) !important;
+      letter-spacing: 3px;
+      word-spacing: 6px;
     }
 
       #result,
@@ -68,6 +73,9 @@
             height: 24.4%;
             font-size: 35px;
             padding-top: 12%;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
           }
 
           #rightanswer {
@@ -75,6 +83,9 @@
             width: 320px;
             height: 24.5%;
             padding-top: 12%;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
           }
 
           #winning_score {
@@ -82,6 +93,9 @@
             width: 320px;
             height: 24.6%;
             padding-top: 12%;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
           }
         }
       }
@@ -182,6 +196,7 @@
           text-align: left;
           display: flex;
           margin-top: 2px;
+          text-indent: 12px;
 
           #mistakes {
             width: 270px;
@@ -208,8 +223,6 @@
             background: linear-gradient(to bottom, rgba(56, 88, 120, 0.394), #123, rgba(34, 77, 120, 0.417));
           }
         }
-
-
       }
 
       #settings {
@@ -222,7 +235,7 @@
         #information {
           min-width: 350px;
           max-width: 350px;
-          background: linear-gradient(to right, #123, #321, #456);
+          background: linear-gradient(to top,#987, orange, grey,#777, #987) !important;
           padding: 5% 0;
           display: flex;
           flex-direction: column;
@@ -235,7 +248,7 @@
             min-width: 350px;
             text-align: center;
             padding: 10px 0;
-            background-color: #666456;
+            background: linear-gradient(to top,#987, orange, grey,#777, #987) !important;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -246,15 +259,16 @@
               color: #cbc69e;
               font-size: 24px !important;
               min-height: 6px;
+              background: linear-gradient(to top,#987,silver, orange, grey,#999, #987) !important;
             }
 
             #creatorofapp {
-              font-size: 13px !important;
-              color: grey;
+              font-size: 16px !important;
+              color: white !important;
               text-align: left;
               text-indent: 5px;
               min-height: 6px;
-              background: #222 !important;
+              background: transparent !important;
               width: 350px;
               font-weight: bold;
             }
@@ -320,7 +334,6 @@
         z-index: 96;
 
         #sounder {
-
           width: 100%;
           height: 100%;
           opacity: .5;
@@ -330,7 +343,6 @@
           z-index: 444;
 
           #sndbtn {
-
             width: 1%;
             height: 11%;
             opacity: .5;
@@ -360,22 +372,22 @@
       height: 200px;
       margin: 2px auto;
       background: rgb(89, 102, 52);
+      background: transparent !important;
 
       #letter {
-        background: #123;
-        font-size: 80px;
+        background: transparent !important;
+        font-size: 90px;
         color: #999123;
       }
-
       select::-webkit-scrollbar {
         display: none;
       }
     }
 
     .backo {
-      background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
+      background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231)) !important;
       font-size: 40px;
-      color: transparent;
+      color: transparent !important;
       height: 110px;
       border-radius: 50%;
       transition: 4s;
@@ -383,28 +395,42 @@
 
     .backo:hover {
       transition: 4s;
-      background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232));
+      background: radial-gradient(rgb(238, 242, 246), rgba(255, 255, 0, 0.294), rgb(14, 15, 6), rgb(223, 227, 232)) !important;
       font-size: 40px;
       height: 110px;
       border-radius: 50%;
       cursor: pointer;
+      color: transparent !important;
     }
 
     .facko {
-      background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231));
+      background: radial-gradient(rgb(125, 147, 168), rgba(255, 255, 0, 0.211), rgb(8, 16, 24), rgb(53, 142, 231)) !important;
       font-size: 40px;
-      color: transparent;
+      color: transparent !important;
       height: 110px;
       border-radius: 50%;
       transition: 4s;
     }
 
     .facko:hover {
-      background: radial-gradient(rgba(125, 147, 168, 0.382), rgba(255, 255, 0, 0.234), rgb(8, 16, 24), rgba(53, 142, 231, 0.394));
+      background: radial-gradient(rgba(125, 147, 168, 0.382), rgba(255, 255, 0, 0.234), rgb(8, 16, 24), rgba(53, 142, 231, 0.394)) !important;
       font-size: 40px;
-      color: transparent;
+      color: transparent !important;
       height: 110px;
       border-radius: 50%;
       transition: 4s;
       cursor: pointer;
+    }
+
+    #guess{
+      color: transparent !important;
+      text-shadow: 2px 2px 2px rgba(255,255,255,0.5)  !important;
+    }
+
+    #result span{
+      background: transparent !important;
+    }
+
+    #result span{
+      box-shadow:-212px -23px 100px 12px rgba(255, 0, 0, 0.5); !important;
     }
