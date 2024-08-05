@@ -746,17 +746,17 @@
               msg.innerHTML = result;
             }, 2000)
             setTimeout(() => {
-              winnersplayer.innerHTML = 'PLAYER | ' + name;
+              winnersplayer.innerHTML = '<span>PLAYER</span><span>' + name+'</span>';
             }, 3000)
             setTimeout(() => {
-              rightanswer.innerHTML = 'WORD | ' + word.join('');
+              rightanswer.innerHTML = '<span>WORD</span><span>' + word.join('')+'</span>';
             }, 5000)
             setTimeout(() => {
-              winning_score.innerHTML = 'SCORE | ' + score;
+              winning_score.innerHTML = '<span>SCORE</span><span>' + score+'</span>';
             }, 7000)
             setTimeout(() => {
               window.location.reload();
-            }, 15000)
+            }, 25000)
           }
         } else {
           result = 'WINNER';
@@ -774,17 +774,17 @@
             msg.innerHTML = result;
           }, 2000)
           setTimeout(() => {
-            winnersplayer.innerHTML = 'PLAYER | ' + name;
+            winnersplayer.innerHTML = '<span>PLAYER</span><span>' + name+'</span>';
           }, 3000)
           setTimeout(() => {
-            rightanswer.innerHTML = 'WORD | ' + word.join('');
+            rightanswer.innerHTML = '<span>WORD</span><span>' + word.join('')+'</span>';
           }, 5000)
           setTimeout(() => {
-            winning_score.innerHTML = 'SCORE | ' + score;
+            winning_score.innerHTML = '<span>SCORE</span><span>' + score+'</span>';
           }, 7000)
           setTimeout(() => {
             window.location.reload();
-          }, 15000)
+          }, 25000)
         }
 
         if (wordlen - nofcorrectness === 0) {
